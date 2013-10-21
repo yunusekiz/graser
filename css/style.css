@@ -1,0 +1,128 @@
+﻿html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;padding: 0;border: 0;font-weight: inherit;font-style: inherit;font-size: 100%;vertical-align: baseline;font-family: "Verdana", Arial, Myriad Pro, sans-serif;}
+a{text-decoration:none;transition:all 0.35s ease-in-out 0s}
+body { line-height: 1}
+table { border-collapse:collapse; border-spacing:0;}
+ol,ul { list-style:none; } 
+table { border-collapse: separate; border-spacing: 0; } caption, th, td { text-align: left; font-weight: normal; } table, td, th { vertical-align: middle; }
+blockquote:before, blockquote:after, q:before, q:after { content: ""; } blockquote, q { quotes: "" ""; } input, textarea, select{outline:none}
+a img { border: none; }
+.hide {display: none;} .block {display: block;} .inline {display: inline;} .float-l{float:left} .float-r{float:right}
+.clearfix:after, .container:after {  content: "\0020";  display: block;  height: 0;  clear: both;  visibility: hidden;  overflow:hidden; }
+.clearfix {display: block;}
+*:first-child+html .clearfix {display:inline-block;}
+.clear { clear:both; }
+/*CSS RESET KODLARI SON*/
+body{background:url(../img/bg.jpg) center top repeat;}
+.ortala{width:1000px;margin:0 auto}
+#logo{float:left;margin-right:20px}
+#logo h1 a{width:171px;height:54px;background:url(../img/logo.png) 0 40px no-repeat;display:block;text-indent:-9999px;padding-top:40px}
+#menu{float:left}
+#menu ul li{float:left;margin-right:10px}
+#menu ul li a{display:block;color:#818285;font-size:9pt;padding:70px 15px 35px;}
+#menu ul li a:hover, #menu ul li .aktif{background:#818285;color:#fff}
+
+#anasayfa-bg{background:url(../img/anasayfa-img.png) center 135px no-repeat}
+
+#alt-dortlu{}
+#alt-dortlu ul li{margin-left:24px;float:left;width:167px}
+#alt-dortlu ul li:first-child{margin-left:0px}
+#alt-dortlu ul li img{padding-bottom:10px}
+#alt-dortlu ul li a{font-size:12px;color:#818285;font-weight:bold;display:block;line-height:1.2}
+#alt-dortlu ul li span{color:#bcbdc0}
+
+
+#footer{background:url(../img/footer-bg.jpg) center top repeat; padding:25px 0;margin-top:60px}
+#iletisim-bilgileri{float:left}
+#iletisim-bilgileri p{font-size:8pt;color:#fff;line-height:1.5}
+#copyright {float:right;color:#fff;font-size:7pt;padding-top:45px}
+
+.sol-menu{width:220px;float:left}
+.sag-icerik{width:780px;float:right}
+
+#slider{margin-bottom:540px}
+#harita iframe{width:100%;height:375px;border-bottom:1px solid #818285}
+
+#iletisim h2{margin:30px 0 0px;color:#818285;font-size:18px}
+
+#iletisim-bg{background:url(../img/iletisim-bg.png) no-repeat;width:853px;height:209px;padding:55px 0 0 120px;margin-left:-20px}
+#iletisim-sol{width:280px;float:left}
+#iletisim-sol span{display:block;font-size:16px;color:#818285;line-height:1.5}
+#iletisim-sol span.i2{font-size:22px;color:#777777;margin-bottom:10px}
+#iletisim-sol span.i2 strong{font-size:18px;font-weight:normal}
+#iletisim-sol span.i3{}
+
+#iletisim-sag{width:415px;float:left;position:relative}
+#iletisim-sag h3{font-size:16px;color:#818285;margin-bottom:5px}
+.input1 input, .input2 input{background:url(../img/iletisim-input1.jpg) no-repeat;width:162px;height:28px;font-size:9pt;font-family:"Myriad Pro", arial;color:#000;border:none;padding:5px;float:left;margin-right:10px}
+.input3 textarea{background:url(../img/iletisim-input2.jpg) no-repeat;width:389px;height:57px;border:none;font-size:9pt;font-family:"Myriad Pro", arial;color:#000;padding:5px;margin-top:10px}
+.input4 input{position:absolute;right:25px;bottom:10px;background:url(../img/iletisim-input3.jpg) no-repeat;width:35px;height:32px;cursor:pointer;border:none}
+.input4 input:hover{background-position:center bottom;}
+
+.sol-menu #urun-menu{margin:105px 0 0 -35px}
+.sol-menu #kurumsal-menu{margin:35px 0 0 -35px}
+.sol-menu #galeri-menu{margin:39px 0 0 0px}
+#galeri-menu li ul{margin:5px 0 0 17px}
+#galeri-menu li ul li{margin-bottom:5px}
+.sol-menu ul li{margin-bottom:10px}
+.sol-menu ul li a{font-size:12px;color:#818285;text-transform:uppercase;display:block;padding:3px 0 4px 14px;font-weight:bold}
+.sol-menu ul li a span{display:block;color:#bcbdc0}
+.sol-menu ul li a:hover, .aktif{background:url(../img/sol-menu-li.png) no-repeat left top}
+
+#urunler h1{background:url(../img/dogal-tas-ve-cam-text.png) no-repeat;width:458px;height:56px;display:block;text-indent:-99999px;margin:20px 0 30px;}
+#urunler ul{}
+#urunler ul li{width:158px;display:inline-block;margin:0 14px 15px 0 }
+#urunler ul li a{position:relative}
+#urunler ul li a span{background:url(../img/urun-li.png) no-repeat;padding:2px 0 3px 17px;font-size:10px;color:#575759}
+.urun-hover{z-index:999;display:none}
+#urunler ul li a:hover .urun-hover{display:block !important;position:absolute}
+
+
+#kurumsal-img{background:url(../img/kurumsal-img-bg.png) no-repeat;width:780px;height:403px;margin-bottom:20px;}
+#kurumsal-img p{padding-top:280px;width:400px;text-transform:uppercase;font-size:13px;line-height:1.2;color:#2f2b2c;text-shadow:1px 1px 1px #fff;text-align:justify}
+#kurumsal-img p span{color:#bcbdc0;text-shadow:1px 1px 0px #000}
+#kurumsal-tr, #kurumsal-eng{float:left;width:360px}
+#kurumsal-tr{margin-right:60px}
+#kurumsal-tr p, #kurumsal-eng p{font-size:12px;color:#4b4949;margin-bottom:10px;line-height:1.1}
+#kurumsal-tr strong, #kurumsal-eng strong{font-size:24px;position:relative;top:12px;margin:0 4px 2px 0}
+
+#video{margin:30px 0 0px 20px}
+#video object{margin-bottom:30px}
+#video p{font-size:16px;color:#000;margin-bottom:20px;width:600px;line-height:1.4}
+
+.col1 a:hover ,.col2 a:hover ,.col3 a:hover ,.col4 a:hover {background:#000;background:url(../img/hover-referans.png) no-repeat center center #000}
+.col1 a:hover img,.col2 a:hover img, .col3 a:hover img , .col4 a:hover img  {opacity:0.25;background: #000;}
+.col1 a, .col2 a, .col3 a, .col4 a{margin-bottom:10px;width:175px;display:block;background: center center;}
+.col1, .col2, .col3, .col4{float:left;width:175px;margin-right:10px}
+#galeri{margin-top:40px}
+
+
+.basvuru-form{width:980px;margin-left:-200px}
+#f1{margin-bottom:10px}
+.kutu{float:left;margin-right:5px}
+.kutu span{display:block;font-size:12px;color:#716c70;padding-left:2px}
+.w85 input{width:85px}
+.w290 input{width:290px;}
+.w175 input{width:175px;}
+.w160 input{width:160px;display:block}
+.w30 {width:30px;}
+.kutu label{font-size:11px;color:#716c70;}
+.text1{font-size:10px !important}
+#yabanci-dil{float:left}
+#yabanci-dil li{}
+#yabanci-dil li span{display:inline-block;width:120px;float:left;padding-top:4px}
+#yabanci-dil li select{width:80px}
+.okuma, .yazma, .konusma{font-size:12px;color:#716c70;float:left;margin-right:10px}
+.okuma span, .yazma span, .konusma span{width:80px !important}
+.w70{width:50px;height:14px}
+
+#kullanilan-cihaz{width:170px;float:left;margin:10px}
+#kullanilan-cihaz span, #bilg-baslik{margin-bottom:5px !important;display:block}
+
+#bilgisayar-programlari{width:320px;float:left;margin:10px 20px}
+#bilgisayar-programlari ul li{width:160px;float:left}
+.onceki-is-tecrubesi span, #is-referans span{display:block;margin:20px 0 0px;font-size:12px;color:#716c70}
+
+#maas-tarih{width:170px;float:left}
+#f1 input[type="reset"]{width:300px;float:left;margin-top:20px}
+#f1 input[type="submit"]{width:585px;float:right;margin-top:20px}
