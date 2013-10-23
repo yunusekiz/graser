@@ -126,3 +126,5 @@ body{background:url(../img/bg.jpg) center top repeat;}
 #maas-tarih{width:170px;float:left}
 #f1 input[type="reset"]{width:300px;float:left;margin-top:20px}
 #f1 input[type="submit"]{width:585px;float:right;margin-top:20px}
+
+#address{font-size:8pt;color: #fff;line-height:1.5}
