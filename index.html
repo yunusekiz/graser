@@ -4,6 +4,17 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Başlık</title>
 		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+		
+		<!-- nivo slider themes -->
+		<link rel="stylesheet" href="nivo-slider/themes/default/default.css" type="text/css" media="screen" />
+<!--     	<link rel="stylesheet" href="nivo-slider/themes/light/light.css" type="text/css" media="screen" />
+    	<link rel="stylesheet" href="nivo-slider/themes/dark/dark.css" type="text/css" media="screen" />
+    	<link rel="stylesheet" href="nivo-slider/themes/bar/bar.css" type="text/css" media="screen" /> -->
+    	<link rel="stylesheet" href="nivo-slider/nivo-slider.css" type="text/css" media="screen" />
+    	<link rel="stylesheet" href="nivo-slider/demo/style.css" type="text/css" media="screen" />
+    	<!-- nivo slider themes -->
+
+
 	</head>
     <body><div id="anasayfa-bg">
 	<div class="ortala">
@@ -25,8 +36,18 @@
 					</ul>
 				</div>
 				<div class="clearfix"></div>
-			</div>		
-			<div id="slider"><!-- slider resmin kodu body tagının yanındaki <div id='anasayfa-bg'> divinin içinde, arkaplan olarak atadım !--></div>
+			</div>
+			<!-- slider resmin kodu body tagının yanındaki <div id='anasayfa-bg'> divinin içinde, arkaplan olarak atadım !-->
+		<div class="slider-wrapper theme-default" style="margin-bottom:50px;">		
+			<div id="slider" class="nivoSlider" style="margin-left:-250px;width:906px;margin-top:-50px;">
+				<img src="img/anasayfa-img.png"  alt=""data-transition="fade" />
+				<img src="img/imm1.jpg"  alt=""data-transition="fade" />
+				<img src="img/imm2.jpg"  alt=""data-transition="fade" />
+				<img src="img/imm3.jpg"  alt=""data-transition="fade" />
+				<img src="img/imm4.jpg"  alt=""data-transition="fade" />
+				<img src="img/imm5.jpg"  alt=""data-transition="fade" />
+			</div>
+		</div>	
 			<div id="alt-dortlu">
 				<ul>
 					<li><a href=""><img src="img/anasayfa-img1.jpg" alt="" />DOĞAL TAŞ VE<br />CAM <span>NATUREL STONE&#38;GlASS</span></a></li>
@@ -58,5 +79,12 @@
 		<div class="clearfix"></div>
 		</div>
 	</div></div>
+    <script type="text/javascript" src="nivo-slider/demo/scripts/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="nivo-slider/jquery.nivo.slider.js"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+    </script>	
 	</body>
 </html>

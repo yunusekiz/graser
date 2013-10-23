@@ -22,7 +22,7 @@ body{background:url(../img/bg.jpg) center top repeat;}
 #menu ul li a{display:block;color:#818285;font-size:9pt;padding:70px 15px 35px;}
 #menu ul li a:hover, #menu ul li .aktif{background:#818285;color:#fff}
 
-#anasayfa-bg{background:url(../img/anasayfa-img.png) center 135px no-repeat}
+#anasayfa-bg{/*background:url(../img/anasayfa-img.png) center 135px no-repeat*/}
 
 #alt-dortlu{}
 #alt-dortlu ul li{margin-left:24px;float:left;width:167px}
@@ -40,7 +40,7 @@ body{background:url(../img/bg.jpg) center top repeat;}
 .sol-menu{width:220px;float:left}
 .sag-icerik{width:780px;float:right}
 
-#slider{margin-bottom:540px}
+#slider{/*margin-bottom:540px*/}
 #harita iframe{width:100%;height:375px;border-bottom:1px solid #818285}
 
 #iletisim h2{margin:30px 0 0px;color:#818285;font-size:18px}
