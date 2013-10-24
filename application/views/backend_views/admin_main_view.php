@@ -36,8 +36,17 @@
 						<li><a href="{base}backend/product_category/addItemForm" class="{add_ref_current}">Yeni Kayıt Ekle</a></li>
 						<li><a href="{base}backend/product_category/allItems" class="{add_ref_current}">Kayıt Düzenle/Sil</a></li>					
 					</ul>
+				</li>
 
-				</li>	
+				<li> 
+					<a href="#" class="nav-top-item {ref_current_nav}"> <!-- Add the class "current" to current menu item -->
+					Ürünler
+					</a>
+					<ul>
+						<li><a href="{base}backend/product/addItemForm" class="{add_ref_current}">Yeni Kayıt Ekle</a></li>
+						<li><a href="{base}backend/product/allItems" class="{add_ref_current}">Kayıt Düzenle/Sil</a></li>					
+					</ul>
+				</li>					
 
 				<li> 
 					<a href="#" class="nav-top-item {ref_current_nav}"> <!-- Add the class "current" to current menu item -->

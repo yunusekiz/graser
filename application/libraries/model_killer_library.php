@@ -128,6 +128,22 @@ class model_killer_library extends CI_Model{
 	}
 
 
+	public function readRowByParent($cat_id = null)
+	{
+		if ($cat_id!=null) 
+		{
+			$query = $this->db->select('*')->from($this->view_table_name)->order_by($this->name_of_id_column,'desc')->get();
+
+			if($query->num_rows()>0)
+				return $query->result_array();
+			else
+				return null;
+		}
+		else
+			return null;
+	}
+
+
 
 	/* tabloda update işlemi yapar. hangi tabloyu update edeceğini class instance edilirkenki girilen parametrelerden bulur. */
 	public function updateRow($record_id, $update_data)

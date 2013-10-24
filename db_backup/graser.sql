@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 24 Eki 2013, 01:16:06
--- Sunucu sürümü: 5.5.32
--- PHP Sürümü: 5.4.16
+-- Üretim Zamanı: 24 Eki 2013, 17:53:16
+-- Sunucu sürümü: 5.6.11
+-- PHP Sürümü: 5.5.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -157,9 +157,17 @@ CREATE TABLE IF NOT EXISTS `product` (
   `pro_cat_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL AUTO_INCREMENT,
   `title` text NOT NULL,
+  `product_css` text NOT NULL,
   PRIMARY KEY (`product_id`),
   KEY `pro_cat_id` (`pro_cat_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Tablo döküm verisi `product`
+--
+
+INSERT INTO `product` (`pro_cat_id`, `product_id`, `title`, `product_css`) VALUES
+(1, 1, 'örnek doğal taş ürün1', 'ornek-dogal-tas-urun1');
 
 -- --------------------------------------------------------
 
@@ -173,15 +181,55 @@ CREATE TABLE IF NOT EXISTS `product_category` (
   `title_eng` text NOT NULL,
   `pro_cat_css` text NOT NULL,
   PRIMARY KEY (`pro_cat_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Tablo döküm verisi `product_category`
 --
 
 INSERT INTO `product_category` (`pro_cat_id`, `title_tr`, `title_eng`, `pro_cat_css`) VALUES
-(1, 'türkçe kategori', 'ingilizce kategori', 'turkce-kategori');
+(1, 'doğal taş ve cam', 'natural stone&glass', 'dogal-tas-ve-cam'),
+(2, 'yeni kategori 2', 'new category 2', 'yeni-kategori-2');
 
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `product_photo`
+--
+
+CREATE TABLE IF NOT EXISTS `product_photo` (
+  `product_id` int(11) NOT NULL,
+  `product_photo_id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_big_photo` text NOT NULL,
+  `product_thumb_photo` text NOT NULL,
+  PRIMARY KEY (`product_photo_id`),
+  KEY `product_id` (`product_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Tablo döküm verisi `product_photo`
+--
+
+INSERT INTO `product_photo` (`product_id`, `product_photo_id`, `product_big_photo`, `product_thumb_photo`) VALUES
+(1, 2, 'assets/images/product/23746_19155.jpg', 'assets/images/product/thumb/23746_19155_thumb.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Görünüm yapısı durumu `product_view`
+--
+CREATE TABLE IF NOT EXISTS `product_view` (
+`pro_cat_id` int(11)
+,`title_tr` text
+,`title_eng` text
+,`pro_cat_css` text
+,`product_id` int(11)
+,`title` text
+,`product_css` text
+,`product_photo_id` int(11)
+,`product_big_photo` text
+,`product_thumb_photo` text
+);
 -- --------------------------------------------------------
 
 --
@@ -190,6 +238,15 @@ INSERT INTO `product_category` (`pro_cat_id`, `title_tr`, `title_eng`, `pro_cat_
 DROP TABLE IF EXISTS `main_slider_view`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `main_slider_view` AS select `main_slider_text`.`slider_id` AS `slider_id`,`main_slider_text`.`slider_text_title` AS `slider_text_title`,`main_slider_photo`.`photo_id` AS `photo_id`,`main_slider_photo`.`slider_big_photo` AS `slider_big_photo`,`main_slider_photo`.`slider_thumb_photo` AS `slider_thumb_photo` from (`main_slider_text` join `main_slider_photo`) where (`main_slider_text`.`slider_id` = `main_slider_photo`.`slider_id`);
+
+-- --------------------------------------------------------
+
+--
+-- Görünüm yapısı `product_view`
+--
+DROP TABLE IF EXISTS `product_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `product_view` AS select `product_category`.`pro_cat_id` AS `pro_cat_id`,`product_category`.`title_tr` AS `title_tr`,`product_category`.`title_eng` AS `title_eng`,`product_category`.`pro_cat_css` AS `pro_cat_css`,`product`.`product_id` AS `product_id`,`product`.`title` AS `title`,`product`.`product_css` AS `product_css`,`product_photo`.`product_photo_id` AS `product_photo_id`,`product_photo`.`product_big_photo` AS `product_big_photo`,`product_photo`.`product_thumb_photo` AS `product_thumb_photo` from ((`product_category` join `product`) join `product_photo`) where ((`product_category`.`pro_cat_id` = `product`.`pro_cat_id`) and (`product`.`product_id` = `product_photo`.`product_id`));
 
 --
 -- Dökümü yapılmış tablolar için kısıtlamalar
@@ -200,6 +257,18 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 ALTER TABLE `main_slider_photo`
   ADD CONSTRAINT `main_slider_photo_ibfk_1` FOREIGN KEY (`slider_id`) REFERENCES `main_slider_text` (`slider_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Tablo kısıtlamaları `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`pro_cat_id`) REFERENCES `product_category` (`pro_cat_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Tablo kısıtlamaları `product_photo`
+--
+ALTER TABLE `product_photo`
+  ADD CONSTRAINT `product_photo_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

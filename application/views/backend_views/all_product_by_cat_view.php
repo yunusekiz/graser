@@ -2,7 +2,7 @@
 				
 				<div class="content-box-header">
 					
-					<h3><font style="margin-left:270px;">Kiralık Araçlar (tüm kayıtlar) </font></h3>
+					<h3><font style="margin-left:270px;">Ürünler (kategorilere göre) </font></h3>
 					
 					<div class="clear"></div>
 					
@@ -19,41 +19,43 @@
 							<thead>
 								<tr>
 								{all_items_header_css}
-									<th>Düzenle</th>
-								    <th><font style="margin-left:-2px; margin-right:20px;">Sil</font></th>
-								    <th><font style="margin-left:-8px; margin-right:10px;">Foto. Yükle</font></th>
-								    <th><font style="margin-left:0px; margin-right:0px;">Mevcut Foto.</font></th>
-								    <th>Marka</th>
-								    <th>Model</th>
+									<th></th>
+								    <th><font style="margin-left:-2px; margin-right:20px;">Görüntüle</font></th>
+								    <th><font style="margin-left:-8px; margin-right:10px;"></font></th>
+								    <th><font style="margin-left:0px; margin-right:0px;"></font></th>
+								    <th>Kategori Adı</th>
+								    <th></th>
 								{/all_items_header_css}
 								</tr>	
 							</thead>
 						 
 						 
 							<tbody>
-								 {all_items}
+								 {all_items_by_cat}
 								<tr>
 									<td>
-										<a href="updateItemDetailForm/{auto_id}" title="Düzenle"><img src="{base}assets/backend_assets/images/icons/pencil.png" alt="Düzenle" /></a>
+										<!-- <a href="updateItemDetailForm/{auto_id}" title="Düzenle"><img src="{base}assets/backend_assets/images/icons/pencil.png" alt="Düzenle" /></a> -->
 									</td>
 									
 									<td>
-										<a href="deleteItem/{auto_id}" title="Sil"><img src="{base}assets/backend_assets/images/icons/cross.png" alt="Sil" /></a>
+										<!-- <a href="deleteItem/{auto_id}" title="Sil"><img src="{base}assets/backend_assets/images/icons/cross.png" alt="Sil" /></a> -->
+										<a href="allItemById/{pro_cat_id}" title="Görüntüle"><img src="{base}assets/backend_assets/images/icons/icon_file_1.jpg" alt="Sil" /></a>
 									</td>
 
 									<td>
-										<a href="changeItemPhotoForm/{auto_id}/{auto_photo_id}" title="Fotoğraf Yükle"><img src="{base}assets/backend_assets/images/icons/up_2.png" alt="Fotoğraf Yükle" /></a>
+										<!-- <a href="changeItemPhotoForm/{auto_id}/{auto_photo_id}" title="Fotoğraf Yükle"><img src="{base}assets/backend_assets/images/icons/up_2.png" alt="Fotoğraf Yükle" /></a> -->
 									</td>
 
-									<td class="cocukdiv_image">
+<!-- 									<td class="cocukdiv_image">
 										<a href="{base}{auto_big_photo}" title="{auto_title}">
 										 	<img src="{base}{auto_thumb_photo}" width="45" height="45" style="margin-bottom:-8px; margin-right:-5px;" title="mevcut fotoğraf" />
 										</a>
-									</td>
-									<td>{brand_name}</td>
-									<td>{auto_title}</td>
+									</td> -->
+									<td></td>
+									<td>{title_tr}</td>
+									<td></td>
 								</tr>
-								 {/all_items}
+								 {/all_items_by_cat}
 
 							</tbody>
 							

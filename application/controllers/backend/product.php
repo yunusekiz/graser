@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class auto extends CI_Controller {
+class product extends CI_Controller {
 	
 	protected $parser_data;
 
@@ -24,11 +24,11 @@ class auto extends CI_Controller {
 		parent::__construct();
 		$this->session_killer_library->controlSession('admin_session');
 
-		$this->model_name = 'auto_model';
-		$this->item_big_photo_column_name = 'auto_big_photo';
-		$this->item_thumb_photo_column_name = 'auto_thumb_photo';
+		$this->model_name = 'product_model';
+		$this->item_big_photo_column_name = 'product_big_photo';
+		$this->item_thumb_photo_column_name = 'product_thumb_photo';
 
-		$this->change_item_photo_form_action = 'auto/changeItemPhoto';
+		$this->change_item_photo_form_action = 'product/changeItemPhoto';
 		
 		$this->parser_data['base'] = base_url();
 		$this->parser_data['backend_base'] = base_url().'backend/';
@@ -40,12 +40,12 @@ class auto extends CI_Controller {
 
 		$this->img_lib_bootstrap_data = array(
 											  'image_form_field' =>	'photo_field',
-											  'upload_path'		 =>	'assets/images/auto',
+											  'upload_path'		 =>	'assets/images/product',
 											  'image_name'		 =>	$this->img_name,
 											  'big_img_width'	 =>	800,
-											  'big_img_height'	 =>	550,
-											  'thumb_img_width'	 =>	218,
-											  'thumb_img_height' =>	149
+											  'big_img_height'	 =>	780,
+											  'thumb_img_width'	 =>	158,
+											  'thumb_img_height' =>	154
 					 	 					);
 	}
 	
@@ -55,14 +55,14 @@ class auto extends CI_Controller {
 	public function addItemForm() 
 	{
 		if ($this->{$this->model_name}->readParentRow() != NULL)
-			$this->parser_data['brands_iteration'] = $this->{$this->model_name}->readParentRow();
+			$this->parser_data['pro_cat_iteration'] = $this->{$this->model_name}->readParentRow();
 		else
-			$this->parser_data['brands_iteration'] = array();
+			$this->parser_data['pro_cat_iteration'] = array();
 
 		// admin panelinin ilgili view lerini yükler
 		$this->parser->parse('backend_views/admin_header_view',$this->parser_data);
 		$this->parser->parse('backend_views/admin_main_view',$this->parser_data);
-		$this->parser->parse('backend_views/add_auto_view',$this->parser_data);
+		$this->parser->parse('backend_views/add_product_view',$this->parser_data);
 		$this->parser->parse('backend_views/admin_footer_view',$this->parser_data);
 	}
 
@@ -70,13 +70,12 @@ class auto extends CI_Controller {
 	/* Yeni kayıt için eklemek için formdan gönderilen değerleri kontrol edip veritabanına kaydeder.*/
 	public function addItem()
 	{
-		$auto_title	 = $this->input->post('auto_title');
-		$auto_detail = $this->input->post('auto_detail');
-		$brand_id	 = $this->input->post('brand_id');
+		$product_title	= $this->input->post('title');
+		$cat_id	 		= $this->input->post('cat_id');
 
-		if (($auto_title!='')&&($auto_detail!='')&&($brand_id!='0')) 
+		if (($product_title!='')&&($cat_id!='0')) 
 		{
-			$item_css = filterForeignChars($auto_title);
+			$item_css = filterForeignChars($product_title);
 
 			$this->load->library('image_upload_resize_library');
 				
@@ -91,8 +90,7 @@ class auto extends CI_Controller {
 				$big_img_data_for_db	= $this->image_upload_resize_library->getSizedBigImgNameForDB();
 				$thumb_img_data_for_db	= $this->image_upload_resize_library->getSizedThumbImgNameForDB();
 
-				$insert_item_detail_to_db = $this->{$this->model_name}->insertNewItemDetail($brand_id, $auto_title,
-																							$auto_detail, $item_css);
+				$insert_item_detail_to_db = $this->{$this->model_name}->insertNewItemDetail($cat_id,$product_title,$item_css);
 				if ($insert_item_detail_to_db==TRUE) // item detail ler db ye insert edilmişse, item photo bilgilerini db ye insert eder 
 				{
 					$insert_item_photo_to_db = $this->{$this->model_name}->insertNewItemPhoto($big_img_data_for_db, 
@@ -142,6 +140,27 @@ class auto extends CI_Controller {
 	{
 		if ($this->{$this->model_name}->readRow()!=NULL) 
 		{
+			$this->parser_data['all_items_by_cat'] = $this->{$this->model_name}->readRow();
+			$this->parser_data['all_items_header_css']  = array(array());
+		}
+		else
+		{
+			$this->parser_data['all_items_by_cat'] = array();	
+			$this->parser_data['all_items_header_css']  = array();	
+		}
+
+		// admin panelinin ilgili view lerini yükler
+		$this->parser->parse('backend_views/admin_header_view',$this->parser_data);
+		$this->parser->parse('backend_views/admin_main_view',$this->parser_data);
+		$this->parser->parse('backend_views/all_product_by_cat_view',$this->parser_data);
+		$this->parser->parse('backend_views/admin_footer_view',$this->parser_data);		
+	}
+
+	/* Veritabanındaki ilgili tablodaki tüm değerleri getirir ve admin panelinin ilgili view'ını render eder. */
+	public function allItemById()
+	{
+		if ($this->{$this->model_name}->readRow()!=NULL) 
+		{
 			$this->parser_data['all_items'] = $this->{$this->model_name}->readRow();
 			$this->parser_data['all_items_header_css']  = array(array());
 		}
@@ -154,18 +173,20 @@ class auto extends CI_Controller {
 		// admin panelinin ilgili view lerini yükler
 		$this->parser->parse('backend_views/admin_header_view',$this->parser_data);
 		$this->parser->parse('backend_views/admin_main_view',$this->parser_data);
-		$this->parser->parse('backend_views/all_auto_view',$this->parser_data);
+		$this->parser->parse('backend_views/all_product_by_id_view',$this->parser_data);
 		$this->parser->parse('backend_views/admin_footer_view',$this->parser_data);		
 	}
+
 
 	/* Veritabanındaki bilgileri update etmek için gerekli HTML formları ekrana getirir. */
 	public function updateItemDetailForm($id)
 	{
+		$this->parser_data['pro_cat_iteration'] = $this->{$this->model_name}->readParentRow();
 		$this->parser_data['item_detail'] = $this->{$this->model_name}->readRow($id);
 		
 		$this->parser->parse('backend_views/admin_header_view',$this->parser_data);
 		$this->parser->parse('backend_views/admin_main_view',$this->parser_data);
-		$this->parser->parse('backend_views/update_auto_detail_view',$this->parser_data);
+		$this->parser->parse('backend_views/update_product_detail_view',$this->parser_data);
 		$this->parser->parse('backend_views/admin_footer_view',$this->parser_data);			
 	}
 
@@ -174,16 +195,16 @@ class auto extends CI_Controller {
 	{
 		$item_id = $this->input->post('id');
 
-		$auto_title	 = $this->input->post('auto_title');
-		$auto_detail = $this->input->post('auto_detail');
+		$product_title	 = $this->input->post('product_title');
+		$product_detail = $this->input->post('product_detail');
 		$brand_id	 = $this->input->post('brand_id');
 
-		if (($auto_title!='')&&($auto_detail!='')&&($brand_id!='0')) 
+		if (($product_title!='')&&($product_detail!='')&&($brand_id!='0')) 
 		{
-			$item_css = filterForeignChars($auto_title);
+			$item_css = filterForeignChars($product_title);
 
-			$update_item_detail = $this->{$this->model_name}->updateItemDetail($item_id, $brand_id, $auto_title,
-																			   $auto_detail, $item_css);
+			$update_item_detail = $this->{$this->model_name}->updateItemDetail($item_id, $brand_id, $product_title,
+																			   $product_detail, $item_css);
 			if ($update_item_detail == TRUE) 
 			{
 				$message = 'Kayıt Güncelleme Başarılı..!';
