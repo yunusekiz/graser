@@ -4,6 +4,9 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>{site_title}</title>
 		<link href="{base}css/style.css" rel="stylesheet" type="text/css" media="all" />
+		<script type="text/javascript">
+			var imagePath = '{base}';
+		</script>			
 		<script src="{base}js/jquery-1.7.2.min.js"></script>
 		<script src="{base}js/lightbox.js"></script>
 		<link href="{base}css/lightbox.css" rel="stylesheet" />

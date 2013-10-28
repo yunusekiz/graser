@@ -21,7 +21,7 @@ class iletisim extends CI_Controller {
 	protected function iletisim()
 	{
 		$this->load->model('contact_model');
-		$this->parser_data['contact_iteration'] = $this->contact_model->readRow();
+		$this->parser_data['iletisim_iteration'] = $this->contact_model->readRow();
 	}
 
 	public function mesaj()
@@ -39,9 +39,10 @@ class iletisim extends CI_Controller {
 			$message_total .= "Mail adresi : ".$email."\n";
 			$message_total .= "Mail içeriği : ".$message;
 
+
 			$email_data = array(
-							 	 'to'		=> 'info@masalhane.com',
-							 	 'subject' 	=> $subject,
+							 	 'to'		=> 'ynsekiz@gmail.com',
+							 	 'subject' 	=> 'Graser - Kontrol Paneli',
 							 	 'message'	=> $message_total
 								);
 
@@ -51,7 +52,7 @@ class iletisim extends CI_Controller {
 
 			if ($send_email == true)
 			{
-				$msg = 'Mesajiniz elimize ulasti, en kisa surede sizinle iletisime gececegiz.';
+				$msg = 'Mesajınız elimize ulaştı, en kısa sürede sizinle iletişime geçecegiz.';
 				echo "<script type='text/javascript'>
 						alert('$msg');
 					  </script>";
@@ -59,7 +60,7 @@ class iletisim extends CI_Controller {
 			}
 			else
 			{
-				$msg = 'Bir hata olustu. Lutfen daha sonra tekrar deneyin';
+				$msg = 'Bir hata oluştu. Lütfen daha sonra tekrar deneyin';
 				echo "<script type='text/javascript'>
 						alert('$msg');
 					  </script>";
@@ -68,7 +69,7 @@ class iletisim extends CI_Controller {
 		}
 		else
 		{
-			$msg = 'Lutfen bos alan birakmayin.';
+			$msg = 'Lütfen boş alan bırakmayın.';
 			echo "<script type='text/javascript'>
 					 alert('$msg');
 				  </script>";

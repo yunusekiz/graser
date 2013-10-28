@@ -56,23 +56,23 @@
 					<div id="f1">
 						<div class="kutu">
 							<span><b>Başvurulacak Departman/Pozisyon</b></span>
-							<select style="width:235px" id="" name="position">
-								<option value="Pozisyon Seçilmemiş">Seçiniz</option>
+							<select style="width:235px" id="" name="position" required>
+								<option value="">Seçiniz</option>
 								<option value="Grasel Ustası">Grasel Ustası</option>
 								<option value="Araç Taşıma">Araç Taşıma</option>
 							</select>
 						</div>
 						<div class="kutu" style="margin-left:5px;">
 							<span><b>Ad Soyad</b></span>
-							<input type="text" style="width:200px;" name="contactname"/>
+							<input type="text" style="width:200px;" name="contactname" required/>
 						</div>
 						<div class="kutu">
 							<span><b>E-mail</b></span>
-							<input type="text" style="width:215px;" name="email" />
+							<input type="text" style="width:215px;" name="email" required/>
 						</div>
 						<div class="kutu w85">
 							<span><b>Telefon</b></span>
-							<input type="text" style="width:200px;" name="phone"/>
+							<input type="text" style="width:200px;" name="phone" required/>
 						</div>	
 						<br/><br/><br/>
 						
@@ -83,12 +83,12 @@
 						<div id="is-referans">
 						<div class="kutu">
 							<span><b>Cv / Özgeçmiş Dosyanız</b></span>
-							<input type="file" style="width:200px;" name="cv_file_name"/>
+							<input type="file" style="width:200px;" name="cv_file_name" required/>
 						</div>							
 							<div id="eklemek-istenen">
 								<div class="kutu" style="margin-left:40px;">
 									<span><b>Eklemek İstediğiniz Diğer Hususlar</b></span>
-									<textarea name="message" id="" cols="77" rows="6"></textarea>
+									<textarea name="message" id="" cols="77" rows="6" required></textarea>
 								</div>
 							</div>
 						</div>						

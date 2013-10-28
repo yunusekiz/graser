@@ -47,10 +47,15 @@
                     </div>
                     <div id="iletisim-sag">
                         <h3>İletişim Formu</h3>
-                        <div class="input1"><input type="text" value="ad soyad"  onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" /></div>
+<!--                         <div class="input1"><input type="text" value="ad soyad"  onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" /></div>
                         <div class="input2"><input type="text" value="mail" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" /></div>
-                        <div class="input3"><textarea onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">mesaj</textarea></div>
+                        <div class="input3"><textarea onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">mesaj</textarea></div> -->
+                      <form action="iletisim/mesaj" method="post">
+                        <div class="input1"><input type="text" name="name" placeholder="ad soyad" required/></div>
+                        <div class="input2"><input type="text" name="email" placeholder="mail" required/></div>
+                        <div class="input3"><textarea name="message" placeholder="mesaj" required></textarea></div>                        
                         <div class="input4"><input type="submit" value="" /></div>
+                      </form>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -64,16 +69,18 @@
             <div class="sol-menu"></div>
             <div class="sag-icerik">
                 <div id="iletisim-bilgileri">
+                    {iletisim_iteration}
                     <p>
-                        1. Organize Sanayi Bölgesi Akhun Cad. No:2 <br />
-                        06930 Sincan Ankara - TÜRKİYE<br />
-                        Tel    : 0 312 267 38 28 (pbx)<br />
-                        Faks     : 0 312 267 40 12
+                        <div id="address">{address}</div>
                     </p>
+                    <p>
+                        Tel&nbsp;&nbsp;&nbsp;&nbsp;: {phone}<br />
+                        Faks&nbsp;&nbsp;: {fax}
+                    </p>
+                    {/iletisim_iteration}
                 </div>
                 <p id="p_444">444 44 59</p>
                 <div id="copyright">
-
                     <p>Copyright © 2013 Graser All Rights Reserved.</p>
                 </div>
             </div>
