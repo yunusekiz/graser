@@ -10,7 +10,7 @@
 					
 					 <div class="tab-content default-tab" id="1">
 					
-						<form action="{base}backend/auto/updateItemDetail" method="post" enctype="multipart/form-data">
+						<form action="{base}backend/product/updateItemDetail" method="post" enctype="multipart/form-data">
 							<br />
 							<fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
 
@@ -23,22 +23,24 @@
 										<option value="{pro_cat_id}">{title_tr}</option>
 										{/pro_cat_iteration}
 									</select> 
-								</p><br /><br />
+								</p><br />
 								
 							{item_detail}												
 								<p>
 									<label>Kayıtlı Olan Kategori </label>
-								 	<input class="text-input large-input" type="text" name="pro_cat_id_" value="{title_tr}" style="color:#000;" readonly />             
+									<input type="hidden" name="hidden_cat_id" value="{pro_cat_id}">
+								 	<input class="text-input large-input" type="text" name="pro_cat_id" value="{title_tr}" style="color:#000;" readonly />             
 								</p><br />												
 								<p>
 									<label>Ürün Adı </label>
 									<input class="text-input large-input" type="text"
-									style="color:#000;" id="large-input" name="auto_title"  value="{title}"
+									style="color:#000;" id="large-input" name="product_title"  value="{title}"
 									/>
 								</p><br />
 								
 								<p>
-									<input type="hidden" name="id" value="{auto_id}"/>
+									<input type="hidden" name="id" value="{product_id}"/>
+									<input type="hidden" name='hidden_cat_name' value="{title_tr}"/>
 									<input class="button" type="submit" value="Kaydet" />
 								</p>
 							{/item_detail}	

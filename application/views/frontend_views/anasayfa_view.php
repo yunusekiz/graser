@@ -25,15 +25,15 @@
         <div class="sag-icerik">        
             <div id="header">
                 <div id="logo">
-                    <h1><a href="index.html">GRASEL</a></h1>
+                    <h1><a href="{base}">GRASEL</a></h1>
                 </div>
                 <div id="menu">
                     <ul>
-                        <li><a href="{base}index.html" class="aktif">ANASAYFA</a></li>
-                        <li><a href="{base}urunler.html">ÜRÜNLER</a></li>
-                        <li><a href="{base}galeri.html">GALERİ</a></li>
-                        <li><a href="{base}kurumsal.html">KURUMSAL</a></li>
-                        <li><a href="{base}iletisim.html">İLETİŞİM</a></li>
+                        <li><a href="{base}" class="aktif">ANASAYFA</a></li>
+                        <li><a href="{base}urunler">ÜRÜNLER</a></li>
+                        <li><a href="{base}galeri">GALERİ</a></li>
+                        <li><a href="{base}kurumsal">KURUMSAL</a></li>
+                        <li><a href="{base}iletisim">İLETİŞİM</a></li>
                     </ul>
                 </div>
                 <div class="clearfix"></div>
@@ -64,13 +64,16 @@
             <div class="sag-icerik">
                 <div id="iletisim-bilgileri">
                     {iletisim_iteration}
+                    <p>
                         <div id="address">{address}</div>
+                    </p>
                     <p>
                         Tel&nbsp;&nbsp;&nbsp;&nbsp;: {phone}<br />
                         Faks&nbsp;&nbsp;: {fax}
                     </p>
                     {/iletisim_iteration}
                 </div>
+                <p id="p_444">444 44 59</p>
                 <div id="copyright">
                     <p>Copyright © 2013 Graser All Rights Reserved.</p>
                 </div>

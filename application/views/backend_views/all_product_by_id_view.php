@@ -2,7 +2,7 @@
 				
 				<div class="content-box-header">
 					
-					<h3><font style="margin-left:270px;">Kiralık Araçlar (tüm kayıtlar) </font></h3>
+					<h3><font style="margin-left:270px;">Ürünler - {cat_name}</font></h3>
 					
 					<div class="clear"></div>
 					

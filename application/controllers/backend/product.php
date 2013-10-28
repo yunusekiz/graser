@@ -75,7 +75,7 @@ class product extends CI_Controller {
 
 		if (($product_title!='')&&($cat_id!='0')) 
 		{
-			$item_css = filterForeignChars($product_title);
+			$item_css = strtolower(filterForeignChars($product_title));
 
 			$this->load->library('image_upload_resize_library');
 				
@@ -138,9 +138,9 @@ class product extends CI_Controller {
 	/* Veritabanındaki ilgili tablodaki tüm değerleri getirir ve admin panelinin ilgili view'ını render eder. */
 	public function allItems()
 	{
-		if ($this->{$this->model_name}->readRow()!=NULL) 
+		if ($this->{$this->model_name}->readParentRow()!=NULL) 
 		{
-			$this->parser_data['all_items_by_cat'] = $this->{$this->model_name}->readRow();
+			$this->parser_data['all_items_by_cat'] = $this->{$this->model_name}->readParentRow();
 			$this->parser_data['all_items_header_css']  = array(array());
 		}
 		else
@@ -157,15 +157,20 @@ class product extends CI_Controller {
 	}
 
 	/* Veritabanındaki ilgili tablodaki tüm değerleri getirir ve admin panelinin ilgili view'ını render eder. */
-	public function allItemById()
+	public function allItemById($id,$name)
 	{
-		if ($this->{$this->model_name}->readRow()!=NULL) 
+		$name = urldecode($name);
+		$this->parser_data['cat_name'] = $name;
+		
+		if ($this->{$this->model_name}->readRowByParent($id)!=NULL) 
 		{
-			$this->parser_data['all_items'] = $this->{$this->model_name}->readRow();
+			$this->parser_data['all_items'] = $this->{$this->model_name}->readRowByParent($id);
+			$this->parser_data['all_items2'] = $this->{$this->model_name}->readRowByParent($id);
 			$this->parser_data['all_items_header_css']  = array(array());
 		}
 		else
 		{
+			$this->parser_data['all_items2'] = array();
 			$this->parser_data['all_items'] = array();	
 			$this->parser_data['all_items_header_css']  = array();	
 		}
@@ -181,9 +186,9 @@ class product extends CI_Controller {
 	/* Veritabanındaki bilgileri update etmek için gerekli HTML formları ekrana getirir. */
 	public function updateItemDetailForm($id)
 	{
-		$this->parser_data['pro_cat_iteration'] = $this->{$this->model_name}->readParentRow();
 		$this->parser_data['item_detail'] = $this->{$this->model_name}->readRow($id);
-		
+		$this->parser_data['pro_cat_iteration'] = $this->{$this->model_name}->readParentRow();
+
 		$this->parser->parse('backend_views/admin_header_view',$this->parser_data);
 		$this->parser->parse('backend_views/admin_main_view',$this->parser_data);
 		$this->parser->parse('backend_views/update_product_detail_view',$this->parser_data);
@@ -195,19 +200,26 @@ class product extends CI_Controller {
 	{
 		$item_id = $this->input->post('id');
 
-		$product_title	 = $this->input->post('product_title');
-		$product_detail = $this->input->post('product_detail');
-		$brand_id	 = $this->input->post('brand_id');
+		$hidden_cat_name = $this->input->post('hidden_cat_name');
+		$hidden_cat_id = $this->input->post('hidden_cat_id');
+		$cat_id = $this->input->post('cat_id');
 
-		if (($product_title!='')&&($product_detail!='')&&($brand_id!='0')) 
+		if ($cat_id != '0')
+			$pro_cat_id	= $cat_id;
+		else
+			$pro_cat_id = $hidden_cat_id;
+
+		$product_title = $this->input->post('product_title');
+
+		if (($product_title!='')) 
 		{
-			$item_css = filterForeignChars($product_title);
+			$item_css = strtolower(filterForeignChars($product_title));
 
-			$update_item_detail = $this->{$this->model_name}->updateItemDetail($item_id, $brand_id, $product_title,
-																			   $product_detail, $item_css);
+			$update_item_detail = $this->{$this->model_name}->updateItemDetail($pro_cat_id,$item_id,$product_title,$item_css);
 			if ($update_item_detail == TRUE) 
 			{
 				$message = 'Kayıt Güncelleme Başarılı..!';
+				/*$return_path = 'allItemById/'.$pro_cat_id.'/'.$hidden_cat_name;*/
 				$return_path = 'allItems';
 				$this->jquery_notification_library->successMessage($message, $return_path,1);	
 			}

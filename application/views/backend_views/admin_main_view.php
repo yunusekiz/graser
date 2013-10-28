@@ -46,14 +46,64 @@
 						<li><a href="{base}backend/product/addItemForm" class="{add_ref_current}">Yeni Kayıt Ekle</a></li>
 						<li><a href="{base}backend/product/allItems" class="{add_ref_current}">Kayıt Düzenle/Sil</a></li>					
 					</ul>
+				</li>
+
+				<li> 
+					<a href="#" class="nav-top-item {ref_current_nav}"> <!-- Add the class "current" to current menu item -->
+					Referans Kategori
+					</a>
+					<ul>
+						<li><a href="{base}backend/ref_category/addItemForm" class="{add_ref_current}">Yeni Kayıt Ekle</a></li>
+						<li><a href="{base}backend/ref_category/allItems" class="{add_ref_current}">Kayıt Düzenle/Sil</a></li>					
+					</ul>
+				</li>
+
+				<li> 
+					<a href="#" class="nav-top-item {ref_current_nav}"> <!-- Add the class "current" to current menu item -->
+					Referans
+					</a>
+					<ul>
+						<li><a href="{base}backend/ref/addItemForm" class="{add_ref_current}">Yeni Kayıt Ekle</a></li>
+						<li><a href="{base}backend/ref/allItems" class="{add_ref_current}">Kayıt Düzenle/Sil</a></li>					
+					</ul>
 				</li>					
 
 				<li> 
 					<a href="#" class="nav-top-item {ref_current_nav}"> <!-- Add the class "current" to current menu item -->
-					Hakkımızda
+					Sanal Tur
 					</a>
 					<ul>
-						<li><a href="{base}backend/about/editAboutUs" class="{edit_ref_current}">Kayıt Düzenle/Sil</a></li> <!-- Add class "current" to sub menu items also -->
+						<li><a href="{base}backend/tour/updateItemDetailForm" class="{add_ref_current}">Kayıt Düzenle/Sil</a></li>					
+					</ul>
+				</li>
+
+				<li> 
+					<a href="#" class="nav-top-item {ref_current_nav}"> <!-- Add the class "current" to current menu item -->
+					Galeri Kategorisi
+					</a>
+					<ul>
+						<li><a href="{base}backend/gal_category/addItemForm" class="{add_ref_current}">Yeni Kayıt Ekle</a></li>
+						<li><a href="{base}backend/gal_category/allItems" class="{add_ref_current}">Kayıt Düzenle/Sil</a></li>					
+					</ul>
+				</li>
+
+				<li> 
+					<a href="#" class="nav-top-item {ref_current_nav}"> <!-- Add the class "current" to current menu item -->
+					Galeri
+					</a>
+					<ul>
+						<li><a href="{base}backend/gal/addItemForm" class="{add_ref_current}">Yeni Kayıt Ekle</a></li>
+						<li><a href="{base}backend/gal/allItems" class="{add_ref_current}">Kayıt Düzenle/Sil</a></li>					
+					</ul>
+				</li>																								
+
+				<li> 
+					<a href="#" class="nav-top-item {ref_current_nav}"> <!-- Add the class "current" to current menu item -->
+					Kurumsal
+					</a>
+					<ul>
+						<li><a href="{base}backend/about/editAboutUs" class="{edit_ref_current}">Hakkmzda Metnini Düzenle</a></li>
+						<li><a href="{base}backend/career/allItems" class="{add_ref_current}">İş Başvurularını Görüntüle </a></li>
 					</ul>
 				</li>					
 																	

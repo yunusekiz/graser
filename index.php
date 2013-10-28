@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
 
 /*
  *---------------------------------------------------------------
@@ -209,3 +210,5 @@ require_once BASEPATH.'core/CodeIgniter.php';
  * Load "twig library" for codeigniter  
  */
 /*include_once 'vendor/autoload.php';*/
+
+

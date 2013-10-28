@@ -48,7 +48,7 @@ class product_category extends CI_Controller {
 
 		if (($product_category_name_tr!='')&&($product_category_name_eng!='')) 
 		{
-			$item_css = filterForeignChars($product_category_name_tr);	
+			$item_css = strtolower(filterForeignChars($product_category_name_tr));	
 			$insert_item_detail_to_db = $this->{$this->model_name}->insertNewItemDetail($product_category_name_tr, $product_category_name_eng, $item_css);
 			
 			if ($insert_item_detail_to_db==TRUE) // item detail ler db ye insert edilmişse, item photo bilgilerini db ye insert eder 
@@ -111,7 +111,7 @@ class product_category extends CI_Controller {
 
 		if (($product_category_name_tr!='')&&($product_category_name_eng!='')) 
 		{
-			$item_css = filterForeignChars($product_category_name_tr);	
+			$item_css = strtolower(filterForeignChars($product_category_name_tr));	
 			$update_item_detail = $this->{$this->model_name}->updateItemDetail($item_id ,$product_category_name_tr, $product_category_name_eng, $item_css);
 			if ($update_item_detail == TRUE) 
 			{

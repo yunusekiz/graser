@@ -65,11 +65,11 @@ body{background:url(../img/bg.jpg) center top repeat;}
 #galeri-menu li ul{margin:5px 0 0 17px}
 #galeri-menu li ul li{margin-bottom:5px}
 .sol-menu ul li{margin-bottom:10px}
-.sol-menu ul li a{font-size:12px;color:#818285;text-transform:uppercase;display:block;padding:3px 0 4px 14px;font-weight:bold}
+.sol-menu ul li a{font-size:12px;color:#818285;display:block;padding:3px 0 4px 14px;font-weight:bold}
 .sol-menu ul li a span{display:block;color:#bcbdc0}
 .sol-menu ul li a:hover, .aktif{background:url(../img/sol-menu-li.png) no-repeat left top}
 
-#urunler h1{background:url(../img/dogal-tas-ve-cam-text.png) no-repeat;width:458px;height:56px;display:block;text-indent:-99999px;margin:20px 0 30px;}
+#urunler h1{/*background:url(../img/dogal-tas-ve-cam-text.png)*/ no-repeat;width:458px;height:56px;display:block;/*text-indent:-99999px;*/margin:20px 0 30px;}
 #urunler ul{}
 #urunler ul li{width:158px;display:inline-block;margin:0 14px 15px 0 }
 #urunler ul li a{position:relative}
@@ -79,8 +79,8 @@ body{background:url(../img/bg.jpg) center top repeat;}
 
 
 #kurumsal-img{background:url(../img/kurumsal-img-bg.png) no-repeat;width:780px;height:403px;margin-bottom:20px;}
-#kurumsal-img p{padding-top:280px;width:400px;text-transform:uppercase;font-size:13px;line-height:1.2;color:#2f2b2c;text-shadow:1px 1px 1px #fff;text-align:justify}
-#kurumsal-img p span{color:#bcbdc0;text-shadow:1px 1px 0px #000}
+#kurumsal-img p{padding-top:280px;width:400px;text-transform:uppercase;font-size:13px;line-height:1.2;color:#818285;/*text-shadow:1px 1px 1px #fff;*/text-align:justify;font-weight: bold;}
+#kurumsal-img p span{color:#bcbdc0;/*text-shadow:1px 1px 0px #000*/}
 #kurumsal-tr, #kurumsal-eng{float:left;width:360px}
 #kurumsal-tr{margin-right:60px}
 #kurumsal-tr p, #kurumsal-eng p{font-size:12px;color:#4b4949;margin-bottom:10px;line-height:1.1}
@@ -94,7 +94,7 @@ body{background:url(../img/bg.jpg) center top repeat;}
 .col1 a:hover img,.col2 a:hover img, .col3 a:hover img , .col4 a:hover img  {opacity:0.25;background: #000;}
 .col1 a, .col2 a, .col3 a, .col4 a{margin-bottom:10px;width:175px;display:block;background: center center;}
 .col1, .col2, .col3, .col4{float:left;width:175px;margin-right:10px}
-#galeri{margin-top:40px}
+#galeri{/*margin-top:40px*/}
 
 
 .basvuru-form{width:980px;margin-left:-200px}
@@ -127,4 +127,16 @@ body{background:url(../img/bg.jpg) center top repeat;}
 #f1 input[type="reset"]{width:300px;float:left;margin-top:20px}
 #f1 input[type="submit"]{width:585px;float:right;margin-top:20px}
 
+
 #address{font-size:8pt;color: #fff;line-height:1.5}
+#lab{ width:50px; font-size: 10pt;}
+#form_text{width: 400px;} 
+#p_444{margin-left:600px;margin-top:10px;margin-bottom:-40px;color:#fff;font-size:22px;}
+
+#urun_cat_tr{no-repeat;width:500px;height:56px;display:block;color: #818285; font-size: 27px;font-weight: bold; font-family: tahoma;margin:20px 25px 30px}
+#sol_tirnak{margin:30px -5px -48px;}
+
+
+#tirnak_ana_div{width: 100%; margin-bottom: -7px;}
+#tirnak_ana_div #float_left {float: left;no-repeat;height:60px;display:block;color: #BCBDC0; font-size: 27px;font-weight: bold;font-family: tahoma;margin:-60px 110px -10px;}
+#tirnak_ana_div #float_left img{margin-left:-3px;margin-bottom: -2px;}

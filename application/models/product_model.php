@@ -12,6 +12,7 @@ class product_model extends CI_Model {
         $this->model_killer_library->setTableName('product');
         $this->model_killer_library->setNameOfIdColumn('product_id');
         $this->model_killer_library->setViewTableName('product_view');
+        $this->model_killer_library->setNameOfParentIdColumn('pro_cat_id');
     }
 
 	public function insertNewItemDetail($pro_cat_id, $product_title, $product_css)
@@ -33,7 +34,7 @@ class product_model extends CI_Model {
 
 		$insert_data = array(
 								'product_id'			=> $product_id,
-								'product_big_photo'	=> $product_big_photo,
+								'product_big_photo'		=> $product_big_photo,
 								'product_thumb_photo'	=> $product_thumb_photo
 							);
 
@@ -68,10 +69,15 @@ class product_model extends CI_Model {
 		return $this->model_killer_library->deleteRow($row_id, $name_of_id_column, $table_name);
 	}
 
-	public function readParentRow()
+	public function readParentRow($id=NULL)
 	{
         $this->model_killer_library->setTableName('product_category');
         $this->model_killer_library->setNameOfIdColumn('pro_cat_id');
-        return $this->model_killer_library->readParentRow();		
+        return $this->model_killer_library->readParentRow($id);		
+	}
+
+	public function readRowByParent($cat_id)
+	{
+		return $this->model_killer_library->readRowByParent($cat_id);
 	}
 }

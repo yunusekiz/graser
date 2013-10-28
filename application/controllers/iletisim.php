@@ -9,7 +9,7 @@ class iletisim extends CI_Controller {
 		parent::__construct();
 		
 		$this->parser_data['base'] = base_url();
-		$this->parser_data['title'] = 'İletişim - Metosan';
+		$this->parser_data['title'] = 'İletişim | Graser';
 	}	
 
 	public function index()

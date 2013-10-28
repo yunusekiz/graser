@@ -17,7 +17,6 @@ class anasayfa extends CI_Controller {
 
 	public function index()
 	{
-
 		$this->parser->parse('frontend_views/anasayfa_view',$this->parser_data);
 	}
 

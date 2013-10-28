@@ -39,7 +39,7 @@
 									
 									<td>
 										<!-- <a href="deleteItem/{auto_id}" title="Sil"><img src="{base}assets/backend_assets/images/icons/cross.png" alt="Sil" /></a> -->
-										<a href="allItemById/{pro_cat_id}" title="Görüntüle"><img src="{base}assets/backend_assets/images/icons/icon_file_1.jpg" alt="Sil" /></a>
+										<a href="allItemById/{pro_cat_id}/{pro_cat_css}" title="Görüntüle"><img src="{base}assets/backend_assets/images/icons/icon_file_1.jpg" alt="Sil" /></a>
 									</td>
 
 									<td>
